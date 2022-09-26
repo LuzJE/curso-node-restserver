@@ -91,9 +91,6 @@ const usuariosDelete = async (req, res = response) => {
 
     const {id} = req.params;
 
-    // Fisicamente lo borramos
-    //const usuario = await Usuario.findByIdAndDelete(id);
-
     // En este caso no borramos al registro de la base de datos, solo le combiamos el estado a false
     const usuario = await Usuario.findByIdAndUpdate(id, { estado: false });
 

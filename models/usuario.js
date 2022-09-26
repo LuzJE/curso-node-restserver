@@ -33,7 +33,10 @@ const UsuariosSchema = Schema({
 });
 
 UsuariosSchema.methods.toJSON = function() { // tiene que ser una función normal
-    const {__v, password, ...usuario} = this.toObject(); // saca los parámetros y valores de __v y password del arreglo que se regresa en la respesta
+    const {__v, password, _id, ...usuario} = this.toObject(); // saca los parámetros y valores de __v y password del arreglo que se regresa en la respesta
+    
+    usuario['uid'] = _id;
+
     return usuario;
 }
 
